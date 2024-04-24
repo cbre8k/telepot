@@ -1,2 +1,6 @@
 .env
 __pycache__
+modal
+.vscode
+*.session
+*.session-journal
