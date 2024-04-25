@@ -1,3 +1,4 @@
 python-dotenv >= 1.0.1
 python-binance >= 1.0.10
 python-telegram-bot >= 13.13
+telethon == 1.24.0 
