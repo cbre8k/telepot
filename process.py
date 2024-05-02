@@ -65,13 +65,13 @@ def preprocess_msg(message, setting):
     else:
       action = None
 
-    if stlValue is None and action == 'buy':
+    if stlValue == None and action == 'buy':
       stlValue = str(entryValue * (1 - setting['stl_pct'])) if entryValue is not None else None
-    elif stlValue is None and action == 'sell':
+    elif stlValue == None and action == 'sell':
       stlValue = str(entryValue * (1 + setting['stl_pct'])) if entryValue is not None else None
-    elif tpValue is None and action == 'buy':
+    elif tpValue == None and action == 'buy':
       tpValue = str(entryValue * (1 + setting['tp_pct'])) if entryValue is not None else None
-    elif tpValue is None and action == 'sell':
+    elif tpValue == None and action == 'sell':
       tpValue = str(entryValue * (1 - setting['tp_pct'])) if entryValue is not None else None
 
     processedMsg['token'] = tokenValue + 'USDT'

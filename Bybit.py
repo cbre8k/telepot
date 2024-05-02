@@ -12,14 +12,22 @@ class Bybit:
     )
 
   def set_leverage(self, symbol, buy_leverage, sell_leverage=None, category="linear"):
-    position = self.session.switch_margin_mode(
+    position = self.session.set_leverage(
       category=category,
       symbol=symbol,
-      tradeMode=1,
       buyLeverage=buy_leverage,
       sellLeverage=sell_leverage
     )
     return position
+  
+  def set_isolate(self, symbol, buy_leverage, sell_leverage, category="linear"):
+    isolate = self.session.switch_margin_mode(
+      category=category,
+      symbol=symbol,
+      buyLeverage=buy_leverage, 
+      sellLeverage=sell_leverage
+    )
+    return isolate
 
   def place_order(self, symbol, action, order_type, quantity, price, take_profit=None, stop_loss=None, category="linear"):
     order = self.session.place_order(
